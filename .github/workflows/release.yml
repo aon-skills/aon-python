@@ -1,0 +1,45 @@
+name: Publish GitHub Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, normally matching the published PyPI package version
+        required: true
+        type: string
+      prerelease:
+        description: Mark this GitHub release as a prerelease
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  release:
+    name: Create Or Update Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify release inputs
+        run: |
+          set -euo pipefail
+          [[ -n "${{ inputs.tag }}" ]] || {
+            echo 'tag is required' >&2
+            exit 1
+          }
+
+          grep -q '^## \[Unreleased\]' CHANGELOG.md || {
+            echo 'CHANGELOG.md must keep an Unreleased section before cutting a release' >&2
+            exit 1
+          }
+
+      - name: Publish release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          generateReleaseNotes: true
+          name: ${{ inputs.tag }}
+          tag: ${{ inputs.tag }}
+          prerelease: ${{ inputs.prerelease }}

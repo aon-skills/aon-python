@@ -1,0 +1,54 @@
+name: Validate Wrapper Repo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  required-files:
+    name: Required Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify public wrapper surface
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            README.md
+            CHANGELOG.md
+            CONTRIBUTING.md
+            SECURITY.md
+            LICENSE
+            CODE_OF_CONDUCT.md
+            RELEASING.md
+            SKILL.md
+            .github/release.yml
+          )
+
+          for file in "${required_files[@]}"; do
+            if [[ -f "$file" ]]; then
+              echo "OK: $file"
+            else
+              echo "Missing required file: $file" >&2
+              exit 1
+            fi
+          done
+
+          grep -q '^## \[Unreleased\]' CHANGELOG.md || {
+            echo 'CHANGELOG.md must keep an Unreleased section' >&2
+            exit 1
+          }
+
+          grep -q '^# Releasing' RELEASING.md || {
+            echo 'RELEASING.md must keep the release guide heading' >&2
+            exit 1
+          }
+
+          grep -q '^# ' SKILL.md || {
+            echo 'SKILL.md must contain a top-level heading' >&2
+            exit 1
+          }

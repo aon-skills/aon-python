@@ -15,6 +15,11 @@ Create or update a GitHub release when one of the following is true:
 
 Pure governance-only or template-only changes do not require a release.
 
+## GitHub Actions
+
+- `Validate Wrapper Repo` runs on pushes and pull requests to `main` and checks the required public wrapper files.
+- `Publish GitHub Release` is a manual Actions workflow. Run it with a tag that matches the published PyPI version when the wrapper repo needs a release snapshot.
+
 ## Sync Source
 
 The source of truth lives in the AON monorepo. Sync this repository from the monorepo with:

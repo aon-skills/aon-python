@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 - Add the public GitHub wrapper repository source for the Python MCP skill
 - Add release-note categories and public governance templates for the Python skill repo
+- Add GitHub Actions workflows to validate the public wrapper surface and manually publish GitHub Releases
 
 ## [0.1.0] - 2026-04-20
 

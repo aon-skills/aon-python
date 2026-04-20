@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">AON — Python MCP Skill</h1>
   <p align="center">
-    Search the <a href="https://agentoffernetwork.com">Agent Offer Network</a> for product and service recommendations from Claude Code and other MCP hosts using the Python runtime.
+    Search the <a href="https://agentoffernetwork.com">Agent Offer Network</a> for product and service recommendations from any MCP-compatible AI host, powered by the Python runtime.
   </p>
 </p>
 
@@ -24,7 +24,7 @@ Then install the MCP server:
 uvx --from aon-demo-skill-python aon-demo-skill --install --global
 ```
 
-Restart Claude Code. You're ready to go.
+Restart your MCP host (Claude Code, Claude Desktop, Cursor, etc.). You're ready to go.
 
 Alternative install via the official AON CLI:
 
@@ -49,7 +49,7 @@ This repository is the public wrapper for the Python MCP skill package:
 
 - packaged runtime: `aon-demo-skill-python`
 - console entry: `aon-demo-skill`
-- built-in Claude Code skill name: `aon`
+- built-in MCP skill name: `aon`
 
 The skill connects to the [Agent Offer Network](https://agentoffernetwork.com) and exposes the same two MCP tools as the TypeScript runtime.
 
@@ -64,7 +64,7 @@ The skill connects to the [Agent Offer Network](https://agentoffernetwork.com) a
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/claude-code) with Skills support
+- Any MCP-compatible host (Claude Code, Claude Desktop, Cursor, Windsurf, etc.)
 - Python 3.11+
 - [uv](https://docs.astral.sh/uv/)
 

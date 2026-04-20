@@ -14,7 +14,7 @@ argument-hint: <query in any language>
 
 **如果工具不可用**，说明 MCP server 未安装。请告知用户：
 
-> AON MCP 服务尚未安装。请运行以下命令安装，然后重启 Claude Code：
+> AON MCP 服务尚未安装。请运行以下命令安装，然后重启你的 MCP 宿主（如 Claude Code、Claude Desktop、Cursor 等）：
 >
 > ```
 > uvx --from aon-demo-skill-python aon-demo-skill --install --global

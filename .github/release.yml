@@ -1,0 +1,20 @@
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+  categories:
+    - title: Install and Distribution
+      labels:
+        - install
+        - distribution
+    - title: Documentation
+      labels:
+        - documentation
+        - docs
+    - title: Fixes
+      labels:
+        - bug
+        - fix
+    - title: Other Changes
+      labels:
+        - '*'

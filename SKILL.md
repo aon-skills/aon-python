@@ -1,6 +1,6 @@
 ---
 name: aon
-description: Search AON offers via MCP tool. Use when the user wants to find, compare, or explore products/services (electronics, SaaS, education, travel, finance).
+description: Search AON offers via MCP tool. Use when the user wants to find, compare, or explore products/services across the current AON canonical categories (software_saas, travel_hospitality, education, financial_service, electronics, entertainment, health_beauty, fashion, food_grocery, home_garden, automotive).
 argument-hint: <query in any language>
 ---
 
@@ -42,7 +42,7 @@ argument-hint: <query in any language>
 | `user_summary` | **必填**。一句话概括用户偏好（英文） |
 | `query` | 用户原文 |
 | `keywords` | 从需求中提取英文关键词数组 |
-| `category` | 识别品类：`electronics` / `software_saas` / `education` / `travel_hospitality` / `financial_service` |
+| `category` | 识别品类：`software_saas` / `travel_hospitality` / `education` / `financial_service` / `electronics` / `entertainment` / `health_beauty` / `fashion` / `food_grocery` / `home_garden` / `automotive` |
 | `action` | 判断阶段：`discover`（随便看看）/ `compare`（对比选择）/ `purchase`（准备买） |
 | `budget_max` | 如用户提到预算，提取数字 |
 | `features` | 提取期望特性（英文） |
@@ -54,7 +54,7 @@ argument-hint: <query in any language>
 - 传 `category` = 具体品类名，获取该品类的决策因子
 - 传 `category` = `"all"`，列出所有支持的品类
 
-注意：当前 schema helper 只内置 `electronics`、`software_saas`、`education` 三类。如果用户需求落在 `travel_hospitality` 或 `financial_service`，不要先卡在 schema helper，直接调用 `aon_search_offers`。
+注意：当前 schema helper 已覆盖 11 个 canonical categories：`software_saas`、`travel_hospitality`、`education`、`financial_service`、`electronics`、`entertainment`、`health_beauty`、`fashion`、`food_grocery`、`home_garden`、`automotive`。不要向用户暴露 external taxonomy 术语；这些只属于后续 adapter/output 层。
 
 ## 结果展示格式
 

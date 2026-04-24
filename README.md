@@ -53,6 +53,24 @@ This repository is the public wrapper for the Python MCP skill package:
 
 The skill connects to the [Agent Offer Network](https://agentoffernetwork.com) and exposes the same two MCP tools as the TypeScript runtime.
 
+The category surface follows the canonical AON taxonomy defined here:
+
+- <https://github.com/agentoffernetwork/protocol/blob/main/specs/category-taxonomy.md>
+
+Current public categories:
+
+- `software_saas`
+- `travel_hospitality`
+- `education`
+- `financial_service`
+- `electronics`
+- `entertainment`
+- `health_beauty`
+- `fashion`
+- `food_grocery`
+- `home_garden`
+- `automotive`
+
 ## MCP Tools
 
 | Tool | Purpose |
@@ -60,7 +78,7 @@ The skill connects to the [Agent Offer Network](https://agentoffernetwork.com) a
 | `aon_search_offers` | Search offers by keywords, category, preferences, and budget |
 | `aon_get_category_schema` | Get decision factors for a category (helps narrow down search) |
 
-`aon_get_category_schema` currently ships built-in decision schemas for `electronics`, `software_saas`, and `education`. For broader live-mode categories such as `travel_hospitality` or `financial_service`, call `aon_search_offers` directly instead of blocking on the schema helper.
+`aon_get_category_schema` currently ships built-in decision schemas for all 11 current canonical categories: `software_saas`, `travel_hospitality`, `education`, `financial_service`, `electronics`, `entertainment`, `health_beauty`, `fashion`, `food_grocery`, `home_garden`, and `automotive`.
 
 ## Requirements
 
